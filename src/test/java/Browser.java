@@ -9,21 +9,25 @@ public class Browser {
     public WebDriver driver;
 
     @Test
-    public void setupDriver() {
-
+    public void setupChrome() {
         WebDriverFactory ch = new WebDriverFactory();
         ch.createNewDriver("Chrome");
-        logger.debug("SET ChromeDriver");
+        logger.info("SET ChromeDriver");
+    }
 
+    @Test
+    public void setupEdge() {
+        WebDriverFactory ch = new WebDriverFactory();
+        ch.createNewDriver("edge");
+        logger.info("SET EdgeDriver");
     }
 
     @After
     public void tearDown() {
         if (driver != null) {
             driver.quit();
-            logger.debug("Test ends");
+            logger.info("Test ends");
         }
     }
-
 }
 

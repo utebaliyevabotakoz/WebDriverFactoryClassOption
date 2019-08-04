@@ -11,23 +11,22 @@ public class WebDriverFactory {
     public void createNewDriver(String name) {
         WebDriver driver;
 
-        if (name.equals("chrome")) {
+        if (name.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
-            logger.debug("ChromeDriver installed");
+            logger.info("ChromeDriver installed");
 
             driver.get("https://otus.ru/");
-            logger.debug("OPEN https://otus.ru/");
+            logger.info("OPEN https://otus.ru/");
         }
 
-        if (name.equals("edge")) {
+        if (name.equalsIgnoreCase("edge")) {
 //        EdgeDriverManager.getInstance().setup();
             System.setProperty("webdriver.edge.driver", "C:\\Users\\botik\\Documents\\Otus\\Lesson5\\lesson5\\src\\test\\resources\\MicrosoftWebDriver.exe"); //put actual location
             driver = new EdgeDriver();
-            logger.debug("EdgeDriver installed");
+            logger.info("EdgeDriver installed");
             driver.get("https://otus.ru/");
-            logger.debug("OPEN https://otus.ru/");
+            logger.info("OPEN https://otus.ru/");
         }
-
     }
 }
