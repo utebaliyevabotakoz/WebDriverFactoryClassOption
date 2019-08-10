@@ -17,18 +17,24 @@ public class Browser {
     }
 
     @Test
-    public void setupEdge() {
+    public void setupIe() {
         WebDriverFactory ch = new WebDriverFactory();
-        driver1=  ch.createNewDriver("edge");
-        logger.info("SET EdgeDriver");
+        driver1=  ch.createNewDriver("ie");
+        logger.info("SET InternetExplorerDriver");
+    }
+
+    @Test
+    public void setupFirefox() {
+        WebDriverFactory ch = new WebDriverFactory();
+        driver1=  ch.createNewDriver("firefox");
+        logger.info("SET FirefoxDriver");
     }
 
     @After
     public void tearDown() {
         if (driver1 != null) {
             driver1.quit();
-            logger.info("Test ends");
+            logger.info("Tests end");
         }
     }
 }
-
